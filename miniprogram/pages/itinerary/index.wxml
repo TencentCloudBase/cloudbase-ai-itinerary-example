@@ -1,0 +1,26 @@
+<view class="travel-container">
+  <view class="travel-header">
+    <text class="travel-title">{{destination}}之旅</text>
+    <text class="travel-subtitle">{{start_date}}</text>
+  </view>
+  <view class="travel-itinerary">
+    <block wx:for="{{days}}" wx:key="day">
+      <view class="travel-day">
+        <text class="travel-day-title">Day{{item.day}}</text>
+        <view class="travel-activities">
+          <block wx:for="{{item.activities}}" wx:key="name">
+            <view class="travel-activity">
+              <!-- <image class="travel-activity-icon" src="{{getActivityIcon(item.name)}}" mode="aspectFit" /> -->
+              <view>
+                <text class="travel-activity-time">{{item.time}}</text>
+                <text class="travel-activity-name">{{item.name}}</text>
+              </view>
+              <view>
+              <text class="travel-activity-description">{{item.description}}</text></view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

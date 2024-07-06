@@ -1,0 +1,78 @@
+/* pages/itinerary/index.wxss */.travel-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+.travel-header {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.travel-title {
+  font-size: 28px;
+  color: #333;
+}
+
+.travel-subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.travel-itinerary {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.travel-day {
+  margin-bottom: 20px;
+}
+
+.travel-day-title {
+  font-size: 44px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.travel-activities {
+  display: flex;
+  flex-direction: column;
+}
+
+.travel-activity {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.travel-activity-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 20px;
+}
+
+.travel-activity-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 30px;
+  color: #333;
+}
+
+.travel-activity-time {
+  font-size: 14px;
+  width: 100px;
+  display: inline-block;
+  color: #666;
+}
+
+.travel-activity-description {
+  font-size: 14px;
+  color: #666;
+}
