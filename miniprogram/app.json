@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/user-center/index"
+    "pages/user-center/index",
+    "pages/itinerary/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
