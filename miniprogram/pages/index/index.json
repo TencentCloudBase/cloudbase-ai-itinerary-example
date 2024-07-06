@@ -2,5 +2,7 @@
   "usingComponents": {
     "cloud-tip-modal": "/components/cloudTipModal/index"
   },
-  "navigationBarBackgroundColor": "#fff"
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "AI 智能生成路书"
 }

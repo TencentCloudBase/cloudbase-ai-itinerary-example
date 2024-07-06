@@ -1,36 +1,8 @@
-const { envList } = require("../../envList");
-const { QuickStartPoints, QuickStartSteps } = require("./constants");
-
 Page({
-  data: {
-    knowledgePoints: QuickStartPoints,
-    steps: QuickStartSteps,
-  },
-
-  copyCode(e) {
-    const code = e.target?.dataset?.code || '';
-    wx.setClipboardData({
-      data: code,
-      success: () => {
-        wx.showToast({
-          title: '已复制',
-        })
-      },
-      fail: (err) => {
-        console.error('复制失败-----', err);
-      }
-    })
-  },
-
-  discoverCloud() {
-    wx.switchTab({
-      url: '/pages/examples/index',
-    })
-  },
-
-  gotoGoodsListPage() {
-    wx.navigateTo({
-      url: '/pages/goods-list/index',
-    })
-  },
-});
+    // 表单提交事件处理函数
+    submitForm: function(e) {
+      const formData = e.detail.value;
+      console.log('表单数据', formData);
+      // 这里可以调用后端API生成行程，或者进行其他逻辑处理
+    }
+  });
