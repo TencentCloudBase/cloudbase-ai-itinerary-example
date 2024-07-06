@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品列表",
+  "usingComponents": {
+    "cloud-tip-modal": "/components/cloudTipModal/index",
+    "mp-code-modal": "/components/mpCodeModal/index"
+  }
+}

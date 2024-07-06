@@ -1,0 +1,213 @@
+<view class="container">
+  <view class="main">
+    <!-- 获取小程序码 -->
+    <block wx:if="{{ type === 'wx_qrcode_get_qrcode' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，直接获取ShortLink</view>
+      <view wx:if="{{qrcode}}" class="code_box">
+        <image class="code_img" src="{{qrcode}}" />
+      </view>
+      <view class="button" bindtap="getCodeSrc">获取小程序码</view>
+      <view class="tip">可以在”云开发>云模板>模板中心>微信小程序码和链接“找到该模板</view>
+    </block>
+
+    <!-- 获取不限制的小程序码 -->
+    <block wx:if="{{ type === 'wx_qrcode_get_unlimited_qrcode' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，直接获取不限制的小程序码</view>
+      <view class="page-section">
+        <view wx:if="{{qrcodeShortLink}}" class="code_box">
+        <image class="code_img" src="{{qrcodeShortLink}}" />
+      </view>      
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="getUnlimitedCodeSrc">获取不限制的小程序码</view>
+      <view class="tip">可以在”云开发>云模板>模板中心>微信小程序码和链接“找到该模板</view>
+    </block>
+
+    <!-- 获取shortLink -->
+    <block wx:if="{{ type === 'wx_qrcode_generate_short_link' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，直接获取ShortLink</view>
+      <view class="page-section">
+        <view wx:if="{{qrcode}}" class="code_box">
+          <image class="code_img" src="{{qrcode}}" />
+        </view> 
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="getShortLink">获取ShortLink</view>
+      <view class="tip">可以在”云开发>云模板>模板中心>微信小程序码和链接“找到该模板</view>
+    </block>
+
+    <!-- 发送消息 -->
+    <block wx:if="{{ type === 'wx_message_send_message' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，向订阅用户送微信订阅消息。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">订阅消息模板Id</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{templateId}}" bindinput="bindKeyInputTemplateId" placeholder="微信订阅消息模板Id"/>
+          </view>
+        </view>
+        <view class="weui-cells__title">消息接收者openId</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{userOpenId}}" bindinput="bindKeyInputOpenId" placeholder="消息接收者openId"/>
+          </view>
+        </view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="sendMessage" wx:if="{{!getErrorInfo}}">发送消息</view>
+      <view class="button_clear" bindtap="clearError" wx:if="{{getErrorInfo}}">清空</view>
+      <cloud-module-install-path installModuleName="小程序消息"></cloud-module-install-path>
+    </block>
+
+    <!-- 创建activity_id -->
+    <block wx:if="{{ type === 'wx_message_create_activity_id' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，创建被分享动态消息或私密消息的activity_id。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">用户openId</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{userOpenId}}" bindinput="bindKeyInputOpenId" placeholder="用户openId"/>
+          </view>
+        </view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="createMessageActivityId" wx:if="{{!getErrorInfo}}">创建activity_id</view>
+      <view class="button_clear" bindtap="clearError" wx:if="{{getErrorInfo}}">清空</view>
+      <cloud-module-install-path installModuleName="小程序消息"></cloud-module-install-path>
+    </block>
+
+    <!-- 发送短信 -->
+    <block wx:if="{{ type === 'wx_sms_new_send_cloudbase_sms' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，向用户发送携带 URL Link 的短信。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">URL Link</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{urlLink}}" bindinput="bindKeyInputUrlLink" placeholder="请输入URL Link"/>
+          </view>
+        </view>
+        <view class="weui-cells__title">短信模版ID</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{smsTemplateId}}" bindinput="bindKeyInputSmsTemplateId" placeholder="请输入短信模版ID"/>
+          </view>
+        </view>
+        <view class="weui-cells__title">手机号</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{phoneNumber}}" bindinput="bindKeyInputPhoneNumber" placeholder="请输入手机号"/>
+          </view>
+        </view>
+        <view class="weui-cells__title">APPID</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{appid}}" bindinput="bindKeyInputAppid" placeholder="请输入APPID"/>
+          </view>
+        </view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="sendCloudbaseSms" wx:if="{{!getErrorInfo}}">发送短信</view>
+      <view class="button_clear" bindtap="clearError" wx:if="{{getErrorInfo}}">清空</view>
+      <cloud-module-install-path installModuleName="小程序短信"></cloud-module-install-path>
+    </block>
+
+    <!-- 创建发送短信任务 -->
+    <block wx:if="{{ type === 'wx_sms_create_send_sms_task' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，创建发短信任务。发送的短信支持打开云开发静态网站 H5，进而在 H5 里可以打开小程序。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">短信CSV文件地址</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{csvLink}}" bindinput="bindKeyInputCsvLink" placeholder="请输入短信CSV文件地址"/>
+          </view>
+        </view>
+        <view class="weui-cells__title">短信模版ID</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{smsTemplateId}}" bindinput="bindKeyInputSmsTemplateId" placeholder="请输入短信模版ID"/>
+          </view>
+        </view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="sendCloudbaseSmsTask" wx:if="{{!getErrorInfo}}">创建发送短信任务</view>
+      <view class="button_clear" bindtap="clearError" wx:if="{{getErrorInfo}}">清空</view>
+      <cloud-module-install-path installModuleName="小程序短信"></cloud-module-install-path>
+    </block>
+
+    <!-- 文本内容安全识别 -->
+    <block wx:if="{{ type === 'wx_security_msg_sec_check' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，检查一段文本是否含有违法违规内容。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">文本内容</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{securityContent}}" bindinput="bindKeyInputSecurityContent" placeholder="请输入需要安全识别的文本内容"/>
+          </view>
+        </view>
+      </view>
+      <view class="button" bindtap="securityMessageCheck">文本内容安全识别</view>
+      <cloud-module-install-path installModuleName="小程序安全能力"></cloud-module-install-path>
+    </block>
+
+    <!-- 音视频内容安全识别 -->
+    <block wx:if="{{ type === 'wx_security_media_check' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，异步校验图片/音频是否含有违法违规内容。</view>
+      <view class="page-section">
+        <view class="weui-cells__title">文件url地址</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input"  value="{{securityMedia}}" bindinput="bindKeyInputSecurityMedia" placeholder="请输入需要安全识别的音视频url地址"/>
+          </view>
+        </view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells__title">失败原因</view>
+        <view wx:if="{{getErrorInfo}}" class="weui-cells weui-cells_after-error">
+          {{getErrorInfo}}
+        </view>
+      </view>
+      <view class="button" bindtap="securityMediaCheck"  wx:if="{{!getErrorInfo}}">音视频内容安全识别</view>
+      <view class="button_clear" bindtap="clearError" wx:if="{{getErrorInfo}}">清空</view>
+      <cloud-module-install-path installModuleName="小程序安全能力"></cloud-module-install-path>
+    </block>
+
+    <!-- 获取用户openId -->
+    <block wx:if="{{ type === 'wx_user_get_open_id'}}">
+      <view class="top_tip">可通过云开发云模板提供的能力，获取用户的openId。</view>
+      <view class="box_text" wx:if="{{!currentOpenId}}">openId将展示在这里</view>
+      <view wx:if="{{currentOpenId}}" class="code_box">
+        {{currentOpenId}}
+      </view>
+      <view class="button" bindtap="getUserOpenId">获取openId</view>
+      <cloud-module-install-path installModuleName="小程序用户信息"></cloud-module-install-path>
+    </block>
+
+    <!-- 手机号快速验证 -->
+    <block wx:if="{{ type === 'wx_user_get_phone_number' }}">
+      <view class="top_tip">可通过云开发云模板提供的能力，将code换取用户手机号。每个code只能使用一次，code的有效期为5min。</view>
+      <button class="button_phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+      <cloud-module-install-path installModuleName="小程序用户信息"></cloud-module-install-path>
+    </block>
+  </view>
+</view>
+
+<cloud-tip-modal showUploadTipProps="{{showUploadTip}}" />
+<!-- 云模板未安装提示弹框 -->
+<cloud-module-install-modal installModulePageTitleProps="{{installModulePageTitle}}" modalVisibleProps="{{ installModalVisible }}" tipTextProps="{{ installModalTipText }}" installModuleNameProps="{{ installModuleName }}" />
+

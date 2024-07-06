@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="main">
+    <view class="title font_title_2">1、进入云开发</view>
+    <view class="image_container">
+      <image mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/42c5de06223b0ca92524cd18fcde41d1.jpg"></image>
+    </view>
+    <view class="title font_title_2">2、进入云模板</view>
+    <view class="image_container">
+      <image mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/ec2bab70c36185918647a49edcab4c3e.jpg"></image>
+    </view>
+    <view class="title font_title_2">3、在模板中心 -> 小程序基础能力，找到 <text>{{title}}</text></view>
+    <view class="image_container">
+      <!-- 小程序信息 -->
+      <image wx:if="{{ moduleName === 'wx_message_send_message' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/9de8b00030a0dc80bbdb21748a1ba5dc.jpg"></image>
+      <!-- 小程序码和小程序链接 -->
+      <image wx:if="{{ moduleName === 'wx_qrcode_get_qrcode' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/9de8b00030a0dc80bbdb21748a1ba5dc.jpg"></image>
+      <!-- 小程序短信 -->
+      <image wx:if="{{ moduleName === 'wx_sms_new_send_cloudbase_sms' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/958420fefdc8c89c8c24c84518286704.jpg"></image>
+      <!-- 小程序安全能力 -->
+      <image wx:if="{{ moduleName === 'wx_security_msg_sec_check' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/5bb09691d8b33f92f9abc294d44064ac.jpg"></image>
+      <!-- 小程序用户信息 -->
+      <image wx:if="{{ moduleName === 'wx_user_get_open_id' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/fdb26e391e46a13efe3cb884c3dcd120.jpg"></image>
+    </view> 
+    <view class="title font_title_2">4、进入模板详情页，点击 <text>安装模板</text>，等待安装完成即可使用。</view>
+  </view>
+</view>
+

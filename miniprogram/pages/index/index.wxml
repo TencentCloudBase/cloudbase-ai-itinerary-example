@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="main">
+    <view class="title font_title_1">快速开始</view>
+    <view class="sub_title">
+      欢迎使用云开发！本页将带你了解如何使用云开发提供的能力快速开发小程序。
+    </view>
+    <view class="ability_container">
+      <view class="ability_title">你将学习到</view>
+      <view class="ability_item" wx:for="{{ knowledgePoints }}" wx:for-item="point" wx:key="id">
+        {{ point.title }}
+      </view>
+    </view>
+
+    <view class="title font_title_2">5分钟上手教程</view>
+    <view class="sub_title">
+      我们将会使用常用的云开发能力，快速实现一个简单的商品列表页面。无需购买服务器，即可快速开发出后台服务、读取数据库、存取文件、调用微信开放服务。页面最终效果如下图所示。
+    </view>
+    <view class="image_container">
+      <image src="../../images/list-database.png" mode="widthFix" />
+    </view>
+
+    <view class="btn-view-demo-page with-margin" bind:tap="gotoGoodsListPage">查看页面</view>
+
+    <view class="seperator" />
+    <view class="step_container" wx:for="{{ steps }}" wx:key="id" wx:for-item="step">
+      <view id="step_{{ step.id }}" data-step="{{ step.id }}" class="step_title">
+        <view class="step_id_container">
+          <view class="step_id_mark">NO.</view>
+          <view class="step_id_content">0{{ step.id }}</view>
+        </view>
+        <view class="font_title_2">{{ step.title }}</view>
+      </view>
+      <view class="step_content">
+        <block wx:for="{{ step.contents }}" wx:for-item="item" wx:key="index">
+          <view wx:if="{{ item.type === 'text' }}" class="text_zone">
+            <rich-text nodes="<p style='line-height: 26px;'>{{ item.content }}</p>" />
+          </view>
+          <view wx:if="{{ item.type === 'code' }}" class="code_zone">
+            <image class="btn-copy" data-code="{{ item.content }}" bind:tap="copyCode" src="../../images/icons/copy.png" />
+            <rich-text nodes="<pre style='overflow: scroll;'>{{ item.content }}</pre>" />
+          </view>
+          <view wx:if="{{ item.type === 'image' }}" class="image_zone">
+            <image src="../../images/{{ item.content }}" mode="widthFix" />
+          </view>
+        </block>
+      </view>
+      <view wx:if="{{ step.showJumpButton }}" class="btn-view-demo-page" bind:tap="gotoGoodsListPage">查看页面</view>
+      <view class="seperator" />
+    </view>
+
+    <view class="bottom-tip">
+      至此，我们完成了一个带分享功能的小程序，利用了云开发的云函数、云数据库、云存储等能力，无需服务器即可快速完成较为复杂的功能。
+    </view>
+    <view  class="bottom-tip">此外，云开发还提供了云模板、云后台、云托管等更多高级能力，可点击下方按钮前往查看。</view>
+    <view class="button" bind:tap="discoverCloud">探索云开发更多功能</view>
+  </view>
+</view>

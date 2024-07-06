@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 数据加载，显示loading态 -->
+  <block wx:if="{{ isLoading }}">
+    <view class="tip_text">
+      加载中...
+    </view>
+  </block>
+
+  <!-- 数据加载完毕 -->
+  <block wx:if="{{ !isLoading }}">
+    <!-- 有数据 -->
+    <block wx:if="{{ goodsList.length >= 1 }}">
+      <view class="goods-list">
+        <block wx:for="{{ goodsList }}" wx:for-item="goodsDetail" wx:key="_id" wx:for-index="index">
+          <view class="goods-item {{ index % 2 === 0 ? 'even' : 'odd'}}">
+            <image class="goods-image" src="../../images/default-goods-image.png" mode="widthFix" />
+            <view class="goods-title">{{ goodsDetail.title }}</view>
+            <view class="goods-bottom-container">
+              <view class="goods-price">
+                <view class="price-symbol">¥</view>
+                <view class="price-content">{{ goodsDetail.price / 100 }}</view>
+              </view>
+              <view class="btn-share" bind:tap="generateMPCode">分享</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <!-- 无数据 -->
+    <block wx:else>
+      <view class="tip_text">暂无数据，请按照快速入门教程操作并查看效果</view>
+    </block>
+
+    <!-- 小程序码展示弹框 -->
+    <mp-code-modal visible="{{ codeModalVisible }}" imageSrc="{{ codeImageSrc }}" />
+  </block>
+</view>
+
+<view class="bottom_tips">
+  参考快速开始教程，快速了解使用云开发开发小程序
+</view>

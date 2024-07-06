@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">业务示例</view>
+  <view class="top_tip">使用云开发快速实现业务功能</view>
+  <view class="power" wx:key="title" wx:for="{{businessList}}" wx:for-item="business">
+    <view class="power_info" data-index="{{index}}" data-type="{{ business.type }}" bindtap="onClickBusinessInfo">
+      <view class="power_info_text">
+        <view class="power_info_text_title">
+          {{business.title}}
+          <view class="power_info_text_tag" wx:if="{{business.tag}}">{{business.tag}}</view>
+        </view>
+        <view class="power_info_text_tip">{{business.tip}}</view>
+      </view>
+      <image wx:if="{{!business.showItem && business.item.length}}" class="power_info_more" src="../../images/arrow.svg"></image>
+      <image wx:if="{{business.showItem && business.item.length}}" class="power_info_less" src="../../images/arrow.svg"></image>
+      <image wx:if="{{!business.item.length}}" class="power_item_icon" src="../../images/arrow.svg"></image>
+    </view>
+    <view wx:if="{{business.showItem}}">
+      <view wx:key="title" wx:for="{{business.item}}">
+        <view class="line"></view>
+        <view class="power_item" bindtap="jumpBusinessPage" data-title="{{business.title}}" data-level="{{item.level}}" data-subtitle="{{item.title}}" data-type="{{ item.type }}">
+          <view class="power_item_title">{{item.title}}</view>
+          <image class="power_item_icon" src="../../images/arrow.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="environment" bindtap="onChangeShowEnvChoose">当前环境 {{ selectedEnv.alias }}</view>
+
+  <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+
+</view>

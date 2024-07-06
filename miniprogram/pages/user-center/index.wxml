@@ -1,0 +1,49 @@
+<!-- pages/me/index.wxml -->
+<view class="page_container">
+  <view class="top_bg" />
+  <view class="main_content">
+    <view class="userinfo_container">
+      <image class="avatar" src="../../images/icons/avatar.png" bind:tap="getOpenId" mode="widthFix" />
+      <block wx:if="{{ !openId }}">
+        <view class="username" bind:tap="getOpenId">请点击登录</view>
+      </block>
+      <block wx:else>
+        <view class="username">openId: {{ openId }}</view>
+      </block>
+    </view>
+    <view class="settings_container">
+      <!-- <view class="setting_item">
+        <view class="left">
+          <image class="setting_icon" src="../../images/icons/setting.svg" />
+          <view class="setting_text">个人信息设置</view>
+        </view>
+        <image class="arrow_icon" src="../../images/arrow.svg" />
+      </view> -->
+      <!-- <view class="setting_item">
+        <view class="left">
+          <image class="setting_icon" src="../../images/icons/question.svg" />
+          <view class="setting_text">常见问题</view>
+        </view>
+        <image class="arrow_icon" src="../../images/arrow.svg" />
+      </view> -->
+      <view class="setting_item">
+        <view class="left">
+          <image class="setting_icon" src="../../images/icons/customer-service.svg" />
+          <!-- <view class="setting_text">联系客服</view> -->
+          <button open-type="contact" class="contact-button">
+            联系客服
+          </button>
+        </view>
+        <image class="arrow_icon" src="../../images/arrow.svg" />
+      </view>
+      <view class="setting_item" bind:tap="gotoWxCodePage">
+        <view class="left">
+          <image class="setting_icon" src="../../images/icons/share.svg" />
+          <view class="setting_text">分享小程序</view>
+        </view>
+        <image class="arrow_icon" src="../../images/arrow.svg" />
+      </view>
+    </view>
+  </view>
+  <cloud-tip-modal showUploadTipProps="{{showUploadTip}}" />
+</view>

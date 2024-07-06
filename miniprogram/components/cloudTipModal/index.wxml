@@ -1,0 +1,14 @@
+<!--miniprogram/components/cloudTipModal/index.wxml-->
+<!--  wx:if="{{showUploadTip}}" -->
+<view class="install_tip" wx:if="{{showUploadTip}}">
+  <view class="install_tip_back"></view>
+  <view class="install_tip_detail">
+    <view class="install_tip_detail_title">云开发环境未找到</view>
+    <view class="install_tip_detail_tip">请点击上方「云开发」按钮，开通云开发环境后重试。</view>
+    <view class="install_tip_detail_tip">如果已经开通云开发，请检查环境ID与 `miniprogram/app.js` 中的 `env` 参数是否一致。</view>
+    <view class="install_tip_detail_buttons">
+      <view bindtap="onCheckEnv" class="install_tip_detail_button install_tip_detail_button_primary">重新检测</view>
+      <view bindtap="onCheckEnvCancel" class="install_tip_detail_button">取消</view>
+    </view>
+  </view>
+</view>

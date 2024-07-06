@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="main">
+    <view class="title font_title_2">1、进入云开发</view>
+    <view class="image_container">
+      <image mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/42c5de06223b0ca92524cd18fcde41d1.jpg"></image>
+    </view>
+    <view class="title font_title_2">2、进入云模板</view>
+    <view class="image_container">
+      <image mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/ec2bab70c36185918647a49edcab4c3e.jpg"></image>
+    </view>
+    <view class="title font_title_2">3、在模板中心 -> 管理后台，找到 <text>{{title}}</text></view>
+    <view class="image_container">
+      <image wx:if="{{ title === '内容管理系统（CMS）' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/802195e2b3837764fdbf3fa82aadb710.jpg"></image>
+      <image wx:if="{{ title === '云存储管理' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/6ed7d64ce0f66eabb27c66fd7d6f4fdc.jpg"></image>
+      <image wx:if="{{ title === '云数据库管理' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/71ef3a9cd7cc6f1e707b10cbdd6ec2b6.jpg"></image>
+      <image wx:if="{{ title === '商品管理' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/816a3c09ab0b1a698e861eca99e7dc15.jpg"></image>
+      <image wx:if="{{ title === '订单管理' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/81dce3ed7309bb85cea27d954e2f440a.jpg"></image>
+      <image wx:if="{{ title === '轮播图管理' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/c4b90084020ed2f5c74fc4da359b4652.jpg"></image>
+      <image wx:if="{{ title === '小程序微信支付' }}" mode="widthFix" src="https://qcloudimg.tencent-cloud.cn/raw/fd16cb13ef003581a959c7b0cf29fb6b.jpg"></image>
+    </view> 
+    <view class="title font_title_2">4、进入模板详情页，点击 <text>安装模板</text>，等待安装完成即可使用。</view>
+  </view>
+</view>

@@ -1,0 +1,221 @@
+/**index.wxss**/
+
+page {
+  /* padding-top: 54rpx; */
+  padding-bottom: 60rpx;
+  background-color: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  font-family: PingFang SC;
+}
+
+.image_container {
+  margin-top: 48rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 20rpx;
+  margin-top: 40rpx;
+}
+
+.sub_title {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 52rpx;
+}
+
+/* 一级标题字体 */
+.font_title_1 {
+  font-weight: 500;
+  color: #000;
+  font-size: 48rpx;
+}
+
+/* 二级标题字体 */
+.font_title_2 {
+  color: #000;
+  font-size: 32rpx;
+  font-weight: 500;
+  font-family: "PingFang SC";
+}
+
+/* 内容字体 */
+.font_content {
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 52rpx;
+}
+
+.seperator {
+  border-top: 2rpx solid #dcdcdc;
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+}
+
+.ability_container {
+  border: 2rpx solid #e5e5e5;
+  padding: 48rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-top: 48rpx;
+}
+
+.ability_title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #000;
+}
+
+.ability_item {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 28rpx;
+}
+
+.ability_item::before {
+  content: "";
+  display: inline-block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-right: 12rpx;
+}
+
+.step_container {
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.step_title,
+.step_content {
+  padding: 8rpx;
+  background-color: #fff;
+}
+
+.step_title {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.step_id_container {
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-weight: 400;
+}
+
+.step_id_mark {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px 0px 0px 2px;
+  color: #fff;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 70rpx;
+  text-align: center;
+}
+
+.step_id_content {
+  width: 50rpx;
+  text-align: center;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-left: none;
+  box-sizing: border-box;
+  border-radius: 0px 2px 2px 0px;
+}
+
+.step_content {
+  background-color: #fff;
+  color: #666;
+  font-size: 28rpx;
+  word-break: break-all;
+}
+
+.text_zone {
+  margin-top: 20rpx;
+  margin-bottom: 48rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.code_zone {
+  background-color: #0E190E;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 12rpx;
+  padding: 0rpx 32rpx;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin-bottom: 48rpx;
+}
+
+.image_zone {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48rpx;
+}
+
+.btn-copy {
+  border-radius: 12rpx;
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+}
+
+.bottom-tip {
+  margin-top: 10rpx;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 28rpx;
+  line-height: 52rpx;
+}
+
+.button {
+  width: 70%;
+  text-align: center;
+  margin: 40rpx auto 0 auto;
+  color: white;
+  border-radius: 5px;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #07c160;
+}
+
+.btn-view-demo-page {
+  width: 100%;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  font-size: 26rpx;
+  padding: 16rpx 0rpx;
+  box-sizing: border-box;
+  border: 1px solid #07c160;
+  color: #07c160;
+  font-size: 32rpx;
+}
+
+.with-margin {
+  margin-top: 48rpx;
+}

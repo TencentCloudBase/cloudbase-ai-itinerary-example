@@ -1,0 +1,104 @@
+/**index.wxss**/
+
+page {
+  padding-top: 54rpx;
+  background-color: #fff;
+  padding-bottom: 60rpx;
+}
+
+.container {
+  width: 100%;
+  overflow: scroll;
+}
+
+.tip_text {
+  width: 100%;
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 28rpx;
+}
+
+.goods-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.goods-item {
+  width: calc(50% - 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.goods-item.even {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.goods-item.odd {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.goods-image {
+  width: 100%;
+}
+
+.goods-title {
+  font-family: "PingFang SC";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+  width: 100%;
+}
+
+.goods-bottom-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.goods-price {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  font-family: "PingFang SC";
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+}
+
+.price-symbol {
+  font-size: 24rpx;
+}
+
+.btn-share {
+  width: 60px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #07C160;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 28rpx;
+  color: #07C160;
+}
+
+
+.bottom_tips {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

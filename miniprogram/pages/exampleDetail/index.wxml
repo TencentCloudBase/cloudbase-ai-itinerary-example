@@ -1,0 +1,111 @@
+<!--pages/exampleDetail/index.wxml-->
+<block wx:if="{{ type === 'getOpenId' }}">
+  <view>
+    <view class="top_tip">无需维护鉴权机制及登录票据，仅一行代码即可获得。</view>
+    <view class="box_text">{{ openId ? openId : 'OpenID将展示在这里' }}</view>
+    <view class="button" bindtap="getOpenId" wx:if="{{!haveGetOpenId}}">获取OpenId</view>
+    <view class="button_clear" bindtap="clearOpenId" wx:if="{{haveGetOpenId}}">清空</view>
+    <view class="tip">在”资源管理器>cloudfunctions>quickstartFunctions>getOpenId>index.js“找到获取openId函数，体验该能力</view>
+    <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'getMiniProgramCode' }}">
+  <view>
+    <view class="top_tip">可通过云函数免接口调用凭证，直接生成小程序码。</view>
+    <view class="box_text" wx:if="{{!codeSrc}}">小程序码将展示在这里</view>
+    <view wx:if="{{codeSrc}}" class="code_box">
+      <image class="code_img" src="{{codeSrc}}"></image>
+    </view>
+    <view class="button" bindtap="getCodeSrc" wx:if="{{!haveGetCodeSrc}}">生成小程序码</view>
+    <view class="button_clear" bindtap="clearCodeSrc" wx:if="{{haveGetCodeSrc}}">清空</view>
+    <view class="tip">在”资源管理器>cloudfunctions>quickstartFunctions>getMiniProgramCode>index.js“找到获取小程序码函数，体验该能力</view>
+    <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'createCollection' }}">
+  <view class="page-container">
+    <view class="title">功能介绍</view>
+    <view class="info">集合为常用数据库中表的概念。云开发数据库支持自动备份、无损回档，并且QPS高达3千+。</view>
+    <view class="title">如何体验</view>
+    <view class="info">已自动创建名为“sales”的体验合集，可打开“云开发控制台>数据库>记录列表”中找到该集合。</view>
+    <image class="img" src="../../images/database.png"></image>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'selectRecord' }}">
+  <view>
+    <view class="top_tip">体验查询记录能力，查询数据表中的销量数据。</view>
+    <view class="box_text" wx:if="{{!record}}">销量数据将展示在这里</view>
+    <view wx:if="{{record}}" class="code_box">
+      <view class="code_box_title">地区销量统计</view>
+      <view class="code_box_record">
+        <view class="code_box_record_title">地域</view>
+        <view class="code_box_record_title">城市</view>
+        <view class="code_box_record_title">销量</view>
+      </view>
+      <view class="line"></view>
+      <view class="code_box_record" wx:for="{{record}}" wx:key="_id">
+        <view class="code_box_record_detail">{{item.region}}</view>
+        <view class="code_box_record_detail">{{item.city}}</view>
+        <view class="code_box_record_detail">{{item.sales}}</view>
+      </view>
+    </view>
+    <view class="button" bindtap="getRecord" wx:if="{{!haveGetRecord}}">查询记录</view>
+    <view class="button_clear" bindtap="clearRecord" wx:if="{{haveGetRecord}}">清空</view>
+    <view class="tip">在”资源管理器>cloudfunctions>quickstartFunctions>selectRecord>index.js“找到查询记录函数，体验该能力</view>
+    <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'uploadFile' }}">
+  <view>
+    <view class="top_tip">多存储类型，仅需一个云函数即可完成上传。</view>
+    <view class="box_text" wx:if="{{!imgSrc}}">上传的图片将展示在这里</view>
+    <view wx:if="{{imgSrc}}" class="code_box">
+      <image class="code_img" src="{{imgSrc}}"></image>
+      <view class="img_info">
+        <view class="img_info_title">文件路径</view>
+        <view class="img_info_detail">{{imgSrc}}</view>
+      </view>
+    </view>
+    <view class="button" bindtap="uploadImg" wx:if="{{!haveGetImgSrc}}">上传一张图片</view>
+    <view class="button_clear" bindtap="clearImgSrc" wx:if="{{haveGetImgSrc}}">清空</view>
+    <view class="tip">在“资源管理器>miniprogram>pages>uploadFile>index.js”找到相应代码，体验该能力</view>
+    <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'singleTemplate' }}">
+  <!--pages/singleTemplate/index.wxml-->
+  <view class="page-container">
+    <view class="title">功能介绍</view>
+    <view class="info">云开发针对小程序中常见的页面，如抽奖、邀请函、用户中心等内嵌页面，提供了一套业务模板+定制修改工具。</view>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/single_template_sample.png"></image>
+    <view class="info">您可以使用云模板快速搭建各类场景的小程序页面，例如抽奖、签到、邀请函、领红包等等。云模板支持通过可视化编辑工具，自定义页面内容和样式，实现个性化定制。</view>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/single_template_info.png"></image>
+    <view class="title">如何使用</view>
+    <view class="info">在资源管理器内找到pages文件夹，右键单击后选择「使用云模板或AI配置页面」或「配置单页模板」。</view>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/single_template.png"></image>
+    <view class="info">💡PS：如果您找不到此选项，请将微信开发者工具更新至最新Nightly版本。</view>
+  </view>
+</block>
+
+<block wx:if="{{ type === 'cloudBackend' }}">
+  <view class="page-container">
+    <view class="title">功能介绍</view>
+    <view class="info">云后台提供了开箱即用的运营管理系统，涵盖小程序后台管理、微信支付管理、公众号管理等场景。</view>
+    <view class="info">开通后的云后台支持从 Web 网页登录，支持分配运营人员账号和权限管理。</view>
+    <view class="info">开发者还可基于低代码工具开发运营系统内的应用，拖拽组件生成前端 UI，从而定制各类管理端应用。</view>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/cloud_backend_login.png"></image>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/cloud_backend_info.png"></image>
+    <view class="title">如何体验</view>
+    <view class="info">打开云开发控制台，在控制台顶部菜单里选择并打开「云后台」，点击「去使用」。</view>
+    <image class="img" mode="widthFix" lazy-load="true" src="../../images/cloud_backend.png"></image>
+    <view class="info">如果您是首次安装，将会进入到开通流程中。在开通流程里，选择您需要的应用，然后点击开通即可。</view>
+    <view class="info">
+      您也可以查看<view class="info-link" bindtap="goOfficialWebsite">云后台文档</view>获得更多使用说明。
+    </view>
+  </view>
+</block>
