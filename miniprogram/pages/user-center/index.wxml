@@ -17,10 +17,9 @@
                     <text class="travel-title">行程列表</text>
                 </view>
                 <view class="travel-list-container">
-                    <block wx:for="{{itinerary}}" wx:key="destination">
-                        <view class="travel-itinerary-item" bindtap="goToDetail" data-id="itinerary._id">
-                            <text class="travel-destination">{{item.destination}}</text>
-                            <text class="travel-start-date">{{item.start_date}}</text>
+                    <block wx:for="{{itineraries}}" wx:key="destination">
+                        <view class="travel-itinerary-item" bindtap="goToDetail" data-id="{{item._id}}">
+                            <text class="travel-destination">{{item.destination}} {{item.days.length}} 天之旅</text>
                         </view>
                     </block>
                 </view>

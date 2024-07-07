@@ -8,20 +8,25 @@ Page({
   data: {
     openId: '',
     showUploadTip: false,
-    itinerary: [
-        // 这里可以是从服务器获取的行程列表数据
-        // 示例数据结构：
-        {
-          destination: '深圳',
-          start_date: '2023-12-01'
-        },
-        // ...
+    itineraries: [
       ]
   },
 
-  onLoad: function() {
+  onLoad: async function() {
     // 这里可以加载行程列表数据
-    // 例如，从服务器请求数据或从本地JSON文件读取
+    const { data } = await wx.cloud.models.itinerary.list({
+        filter: {
+            where: {}
+        },
+        pageSize: 10,
+        getCount: true, // 开启用来获取总数
+    });
+    
+      // 返回查询到的数据列表 records 和 总数 total
+      console.log(data);
+      this.setData({
+        itineraries: data.records
+      })
   },
   goToDetail: function(e) {
     // 点击行程列表项跳转到详细行程页面

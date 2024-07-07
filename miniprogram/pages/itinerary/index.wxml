@@ -1,10 +1,10 @@
-<view class="travel-container">
+<view class="travel-container" wx:if="{{itinerary._id}}">
   <view class="travel-header">
-    <text class="travel-title">{{destination}}之旅</text>
-    <text class="travel-subtitle">{{start_date}}</text>
+    <text class="travel-title">{{ itinerary.destination}} {{itinerary.days.length}} 天之旅</text>
+    <!-- <text class="travel-subtitle">{{itinerary.start_date}}</text> -->
   </view>
   <view class="travel-itinerary">
-    <block wx:for="{{days}}" wx:key="day">
+    <block wx:for="{{itinerary.days}}" wx:key="day">
       <view class="travel-day">
         <text class="travel-day-title">Day{{item.day}}</text>
         <view class="travel-activities">
