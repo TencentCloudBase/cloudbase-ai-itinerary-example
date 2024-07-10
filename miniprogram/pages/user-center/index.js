@@ -18,6 +18,11 @@ Page({
         filter: {
             where: {}
         },
+        orderBy: [
+          {
+            updatedAt: 'desc'
+          }
+        ],
         pageSize: 10,
         getCount: true, // 开启用来获取总数
     });

@@ -4,11 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sync-model-dts": "tcb sync-model-dts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@cloudbase/wx-cloud-client-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@cloubase/cli": "latest"
   }
 }

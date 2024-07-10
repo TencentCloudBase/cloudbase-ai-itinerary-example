@@ -2,7 +2,6 @@
 
 const { init } = require('@cloudbase/wx-cloud-client-sdk')
 
-
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -16,9 +15,10 @@ App({
         env: 'tcb-advanced-a656fc',
         traceUser: true,
       });
-      const client = init(wx.cloud)
+      init(wx.cloud)
     }
 
     this.globalData = {};
   }
 });
+

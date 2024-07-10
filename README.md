@@ -45,6 +45,57 @@
 | -- 名称 | name        | 文本 \| 单行文本 | 否    | 否    |
 
 
+```ts
+interface IModalItinerary {
+  /**
+   * 目的地
+   *
+   */
+  destination?: string;
+  /**
+   * 行程
+   *
+   */
+  days?: {
+    /**
+     * 活动
+     *
+     */
+    activities?: {
+      /**
+       *  名称
+       *
+       */
+      name?: string;
+      /**
+       * 描述
+       *
+       */
+      description?: string;
+      /**
+       *  地点
+       *
+       */
+      location?: string;
+      /**
+       * 时间
+       *
+       */
+      time?: string;
+    }[];
+    /**
+     * 第几天
+     *
+     */
+    day?: number;
+  }[];
+  /**
+   * 出发日期
+   *
+   */
+  start_date?: number;
+}
+```
 
 ### AI智能体配置
 
