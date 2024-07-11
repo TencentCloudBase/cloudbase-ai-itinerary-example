@@ -1,5 +1,4 @@
 // app.js
-
 const { init } = require('@cloudbase/wx-cloud-client-sdk')
 
 App({

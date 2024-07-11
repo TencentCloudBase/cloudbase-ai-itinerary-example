@@ -10,8 +10,5 @@
   "license": "ISC",
   "dependencies": {
     "@cloudbase/wx-cloud-client-sdk": "^1.0.0"
-  },
-  "devDependencies": {
-    "@cloubase/cli": "latest"
   }
 }
