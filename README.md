@@ -30,71 +30,21 @@
 2. 修改 `miniprogram/app.js`中 的 `env: 'tcb-advanced-a656fc'` 为自己的云开发环境 id
 3. 在`cloudfunctions/quickstartFunctions` 目录右键，点击“上传并部署:云端安装依赖”
 4. 点击云开发->云模板，安装 AI 智能体模板云模板
-5. 新建数据模型 智能路书-路书 `itinerary`
+5. 将本地的模型定义同步到云端创建数据模型
 
-| 字段名称  | 字段标识        | 数据类型       | 是否必填 | 是否唯一 |
-| ----- | ----------- | ---------- | ---- | ---- |
-| 目的地   | destination | 文本 \| 单行文本 | 否    | 否    |
-| 出发日期  | start_date  | 日期时间 \| 日期 | 否    | 否    |
-| 行程    | days        | 数组 \| 对象   | 否    | 否    |
-| - 第几天 | day         | 数字         | 否    | 否    |
-| - 活动  | activities  | 数组 \| 对象   | 否    | 否    |
-| -- 地点 | location    | 文本 \| 单行文本 | 否    | 否    |
-| -- 时间 | time        | 文本 \| 单行文本 | 否    | 否    |
-| -- 描述 | description | 文本 \| 单行文本 | 否    | 否    |
-| -- 名称 | name        | 文本 \| 单行文本 | 否    | 否    |
+打开终端程序，进入 `miniprogram`文件夹执行如下命令
 
+```
+npx --package=@cloudbase/cli@2.5 tcb db push
+```
 
-```ts
-interface IModalItinerary {
-  /**
-   * 目的地
-   *
-   */
-  destination?: string;
-  /**
-   * 行程
-   *
-   */
-  days?: {
-    /**
-     * 活动
-     *
-     */
-    activities?: {
-      /**
-       *  名称
-       *
-       */
-      name?: string;
-      /**
-       * 描述
-       *
-       */
-      description?: string;
-      /**
-       *  地点
-       *
-       */
-      location?: string;
-      /**
-       * 时间
-       *
-       */
-      time?: string;
-    }[];
-    /**
-     * 第几天
-     *
-     */
-    day?: number;
-  }[];
-  /**
-   * 出发日期
-   *
-   */
-  start_date?: number;
-}
+将会看到以下输出
+```
+ℹ 使用环境 Id：tcb-advanced-a656fc
+ℹ 开始检查数据模型 itinerary
+? 数据模型 itinerary 已存在，是否更新？ Yes
+✔ 更新数据模型 itinerary 成功，点击查看 https://tcb.cloud.tencent.com/cloud-admin/#/management/data-model/data-3YqErZah7}
+? 数据模型已经导入成功，是否发布？ Yes
 ```
 
 ### AI智能体配置

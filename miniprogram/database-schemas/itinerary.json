@@ -1,0 +1,463 @@
+{
+    "x-primary-column": "_id",
+    "x-kind": "tcb",
+    "x-defaultMethods": [
+        "wedaCreate",
+        "wedaUpdate",
+        "wedaDelete",
+        "wedaGetItem",
+        "wedaGetRecords",
+        "wedaGetList",
+        "wedaBatchCreate",
+        "wedaBatchUpdate",
+        "wedaBatchDelete"
+    ],
+    "type": "object",
+    "x-relatedType": "exist",
+    "x-viewId": "view-5sg67csfds",
+    "required": [],
+    "properties": {
+        "owner": {
+            "default": "",
+            "x-system": true,
+            "x-id": "8b7dfe6",
+            "name": "owner",
+            "format": "father-son",
+            "pattern": "",
+            "x-index": 4,
+            "title": "所有人",
+            "type": "string",
+            "x-unique": false,
+            "x-parent": {
+                "fatherAction": "judge",
+                "parentViewId": "view-5sg64xmyyo",
+                "type": "father-son",
+                "parentDataSourceName": "sys_user"
+            }
+        },
+        "createdAt": {
+            "default": 0,
+            "x-system": true,
+            "x-id": "82f159e",
+            "format": "datetime",
+            "x-index": 2,
+            "type": "number",
+            "title": "创建时间",
+            "x-unique": false
+        },
+        "createBy": {
+            "default": "",
+            "x-system": true,
+            "x-id": "3403b33",
+            "name": "createBy",
+            "format": "father-son",
+            "pattern": "",
+            "x-index": 5,
+            "type": "string",
+            "title": "创建人",
+            "x-unique": false,
+            "x-parent": {
+                "fatherAction": "judge",
+                "parentViewId": "view-5sg64xmyyo",
+                "type": "father-son",
+                "parentDataSourceName": "sys_user"
+            }
+        },
+        "updateBy": {
+            "default": "",
+            "x-system": true,
+            "x-id": "93a079a",
+            "name": "updateBy",
+            "format": "father-son",
+            "pattern": "",
+            "x-index": 6,
+            "type": "string",
+            "title": "修改人",
+            "x-unique": false,
+            "x-parent": {
+                "fatherAction": "judge",
+                "parentViewId": "view-5sg64xmyyo",
+                "type": "father-son",
+                "parentDataSourceName": "sys_user"
+            }
+        },
+        "_departmentList": {
+            "default": "",
+            "x-system": true,
+            "x-id": "6a732d8",
+            "format": "",
+            "name": "_departmentList",
+            "title": "所属部门",
+            "type": "array",
+            "x-index": 7,
+            "items": {
+                "type": "string"
+            },
+            "x-unique": false
+        },
+        "_openid": {
+            "default": "",
+            "x-system": true,
+            "x-id": "7c01480",
+            "name": "_openid",
+            "format": "",
+            "pattern": "",
+            "description": "仅微信云开发下使用",
+            "x-index": 45,
+            "title": "记录创建者",
+            "type": "string",
+            "x-unique": false
+        },
+        "destination": {
+            "x-required": false,
+            "x-keyPath": "",
+            "x-id": "9b6cb174",
+            "format": "",
+            "description": "",
+            "type": "string",
+            "x-index": 2,
+            "title": "目的地",
+            "x-unique": false,
+            "maxLength": 4000
+        },
+        "days": {
+            "x-required": false,
+            "x-keyPath": "",
+            "x-id": "14f9833c",
+            "format": "",
+            "description": "",
+            "type": "array",
+            "x-index": 4,
+            "title": "行程",
+            "list": [
+                {
+                    "x-required": false,
+                    "x-keyPath": "",
+                    "x-id": "d691455d",
+                    "format": "",
+                    "numberCount": 0,
+                    "name": "day",
+                    "description": "",
+                    "pId": "14f9833c",
+                    "type": "number",
+                    "x-index": 6,
+                    "title": "第几天",
+                    "x-unique": false
+                },
+                {
+                    "x-keyPath": "",
+                    "x-id": "4759d41f",
+                    "format": "",
+                    "description": "",
+                    "pId": "14f9833c",
+                    "type": "array",
+                    "x-index": 4,
+                    "title": "活动",
+                    "list": [
+                        {
+                            "x-required": false,
+                            "x-keyPath": "",
+                            "x-id": "526d9264",
+                            "format": "",
+                            "name": "location",
+                            "description": "",
+                            "pId": "4759d41f",
+                            "type": "string",
+                            "x-index": 8,
+                            "title": " 地点",
+                            "x-unique": false,
+                            "maxLength": 4000
+                        },
+                        {
+                            "x-required": false,
+                            "x-keyPath": "",
+                            "x-id": "d2575dfa",
+                            "format": "",
+                            "name": "time",
+                            "description": "",
+                            "pId": "4759d41f",
+                            "type": "string",
+                            "x-index": 6,
+                            "title": "时间",
+                            "x-unique": false,
+                            "maxLength": 4000
+                        },
+                        {
+                            "x-required": false,
+                            "x-keyPath": "",
+                            "x-id": "9fb8c12a",
+                            "format": "",
+                            "name": "description",
+                            "description": "",
+                            "pId": "4759d41f",
+                            "type": "string",
+                            "x-index": 4,
+                            "title": "描述",
+                            "x-unique": false,
+                            "maxLength": 4000
+                        },
+                        {
+                            "x-required": false,
+                            "x-keyPath": "",
+                            "x-id": "72679f64",
+                            "format": "",
+                            "name": "name",
+                            "description": "",
+                            "pId": "4759d41f",
+                            "type": "string",
+                            "x-index": 2,
+                            "title": " 名称",
+                            "x-unique": false,
+                            "maxLength": 4000
+                        }
+                    ],
+                    "x-unique": false,
+                    "required": [],
+                    "x-required": false,
+                    "name": "activities",
+                    "items": {
+                        "format": "",
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "72679f64",
+                                "format": "",
+                                "name": "name",
+                                "description": "",
+                                "type": "string",
+                                "x-index": 2,
+                                "title": " 名称",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            "description": {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "9fb8c12a",
+                                "format": "",
+                                "name": "description",
+                                "description": "",
+                                "type": "string",
+                                "x-index": 4,
+                                "title": "描述",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            "location": {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "526d9264",
+                                "format": "",
+                                "name": "location",
+                                "description": "",
+                                "type": "string",
+                                "x-index": 8,
+                                "title": " 地点",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            "time": {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "d2575dfa",
+                                "format": "",
+                                "name": "time",
+                                "description": "",
+                                "type": "string",
+                                "x-index": 6,
+                                "title": "时间",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            }
+                        }
+                    }
+                }
+            ],
+            "items": {
+                "format": "",
+                "type": "object",
+                "properties": {
+                    "activities": {
+                        "x-keyPath": "",
+                        "x-id": "4759d41f",
+                        "format": "",
+                        "description": "",
+                        "type": "array",
+                        "x-index": 4,
+                        "title": "活动",
+                        "list": [
+                            {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "526d9264",
+                                "format": "",
+                                "name": "location",
+                                "description": "",
+                                "pId": "4759d41f",
+                                "type": "string",
+                                "x-index": 8,
+                                "title": " 地点",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "d2575dfa",
+                                "format": "",
+                                "name": "time",
+                                "description": "",
+                                "pId": "4759d41f",
+                                "type": "string",
+                                "x-index": 6,
+                                "title": "时间",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "9fb8c12a",
+                                "format": "",
+                                "name": "description",
+                                "description": "",
+                                "pId": "4759d41f",
+                                "type": "string",
+                                "x-index": 4,
+                                "title": "描述",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            },
+                            {
+                                "x-required": false,
+                                "x-keyPath": "",
+                                "x-id": "72679f64",
+                                "format": "",
+                                "name": "name",
+                                "description": "",
+                                "pId": "4759d41f",
+                                "type": "string",
+                                "x-index": 2,
+                                "title": " 名称",
+                                "x-unique": false,
+                                "maxLength": 4000
+                            }
+                        ],
+                        "x-unique": false,
+                        "required": [],
+                        "x-required": false,
+                        "name": "activities",
+                        "items": {
+                            "format": "",
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "x-required": false,
+                                    "x-keyPath": "",
+                                    "x-id": "72679f64",
+                                    "format": "",
+                                    "name": "name",
+                                    "description": "",
+                                    "type": "string",
+                                    "x-index": 2,
+                                    "title": " 名称",
+                                    "x-unique": false,
+                                    "maxLength": 4000
+                                },
+                                "description": {
+                                    "x-required": false,
+                                    "x-keyPath": "",
+                                    "x-id": "9fb8c12a",
+                                    "format": "",
+                                    "name": "description",
+                                    "description": "",
+                                    "type": "string",
+                                    "x-index": 4,
+                                    "title": "描述",
+                                    "x-unique": false,
+                                    "maxLength": 4000
+                                },
+                                "location": {
+                                    "x-required": false,
+                                    "x-keyPath": "",
+                                    "x-id": "526d9264",
+                                    "format": "",
+                                    "name": "location",
+                                    "description": "",
+                                    "type": "string",
+                                    "x-index": 8,
+                                    "title": " 地点",
+                                    "x-unique": false,
+                                    "maxLength": 4000
+                                },
+                                "time": {
+                                    "x-required": false,
+                                    "x-keyPath": "",
+                                    "x-id": "d2575dfa",
+                                    "format": "",
+                                    "name": "time",
+                                    "description": "",
+                                    "type": "string",
+                                    "x-index": 6,
+                                    "title": "时间",
+                                    "x-unique": false,
+                                    "maxLength": 4000
+                                }
+                            }
+                        }
+                    },
+                    "day": {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "d691455d",
+                        "format": "",
+                        "numberCount": 0,
+                        "name": "day",
+                        "description": "",
+                        "type": "number",
+                        "x-index": 6,
+                        "title": "第几天",
+                        "x-unique": false
+                    }
+                }
+            },
+            "x-unique": false,
+            "required": []
+        },
+        "_id": {
+            "default": "",
+            "x-system": true,
+            "x-id": "1b10eb7",
+            "format": "",
+            "pattern": "",
+            "x-index": 1,
+            "type": "string",
+            "title": "数据标识",
+            "x-unique": true
+        },
+        "updatedAt": {
+            "default": 0,
+            "x-system": true,
+            "x-id": "f95ea5d",
+            "format": "datetime",
+            "x-index": 3,
+            "title": "更新时间",
+            "type": "number",
+            "x-unique": false
+        },
+        "start_date": {
+            "x-required": false,
+            "x-keyPath": "",
+            "x-id": "e5a8e28d",
+            "format": "date",
+            "description": "",
+            "type": "number",
+            "x-index": 47,
+            "title": "出发日期",
+            "x-unique": false
+        }
+    },
+    "title": "智能路书-路书"
+}
